@@ -4,20 +4,32 @@
 
 Código fuente y notebooks de simulaciones realizadas con la plataforma FeNICS que resuelve a partir del método de elemento finito, la ecuación de flujo para agua subterránea bajo diversas condiciones.  
 
+Link del proyecto: https://fenicsproject.orggo
+
 ### Simbología de simulaciones
 
 #### Código fuente
 
 1.1 Caso homogéneo/Planta/CondicionesSimples
+
 1.2 Caso homogéneo/Perfil/CondicionesSimples
+
 2.1 Caso homogéneo/Perfil/CondicionesComplejas
+
 3.1 Caso heterogéneosimple/PlantaDir/CondicionesSimples
+
 3.2 Caso heterogéneosimple/PlantaInv/CondicionesSimples
+
 3.3 Caso heterogéneosimple/PerfilDir/CondicionesSimples
+
 3.4 Caso heterogéneosimple/PerfilInv/CondicionesSimples
+
 4.1 Caso heterogéneosimple/PerfilDir/CondicionesComplejas
+
 4.1 Caso heterogéneosimple/PerfilInv/CondicionesComplejas
+
 5.1 Caso aleatorio/Perfil/CondicionesSimples
+
 5.2 Caso aleatorio/Perfil/Condiciones anisotropos
 
 #### Jupyter Notebooks
