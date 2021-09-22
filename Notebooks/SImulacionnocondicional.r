@@ -1,9 +1,9 @@
-# Script en R que a partir de la biblioteca gstat calcula los centroides de cada elemento finito y crea el conjunto de valores de simulacion no condicional y genera un conjunto de valores de carga hidraulica a partir de un variograma exponencial
+# Script en R que a partir de la biblioteca gstat calcula los centroides de cada elemento finito y crea el conjunto de valores de
+# simulacion no condicional y genera un conjunto de valores de carga
+# hidraulica a partir de un variograma exponencial
 
 library("gstat")
 xy <- expand.grid(1:5, 1:5)
-
-################ Busqueda de centroides ###########################
 b=10
 h=10
 x=matrix(0,1,40)
@@ -58,13 +58,16 @@ yy=as.vector(yy)
 # Se crea un data frame para los centroides
 xy=data.frame(xx,yy)
 names(xy) <- c("x","y")
-
-##################Simulacion no condicional############################
-
 # Se realizan las simulaciones no condicionales
-vgm1=vgm(1,"Exp",15)
+# Semivariograma para un medio isotropo
+vgm1=vgm(1,"Exp",0.0001)
+# Semivariograma para un medio anisotropo
+#vgm1=vgm(1,"Exp",5000,anis=c(0,0.5))
+## Simulación no condicional
 g.dummy <- gstat(formula = z~1, locations = ~x+y, dummy = TRUE, beta = 0,model = vgm1, nmax = 20)
 yy <- predict(g.dummy, newdata = xy, nsim = 4)
-write.csv(yy, file="Pruebayy.csv")
+write.csv(yy, file="Anisotropo.txt")
+
+
 
 

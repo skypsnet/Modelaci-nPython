@@ -100,7 +100,7 @@ class K(Expression):
     value[0] = self.k_1
 
 # Inicializando subdominio del medio
-k=(100,10)
+k=(10,100)
 kappa = K(degree=0)
 kappa.set_k_values(k)
 
@@ -117,6 +117,23 @@ L = f*v*dx - g*v*ds
 
 u = Function(V)
 solve(a == L, u, bc)
+
+# Se organizan los valores para la exportación de los datos
+#tau=project(grad(u))
+
+tau=project(grad(u))
+xx=np.loadtxt("Coordenadascentroide.csv",delimiter=',',skiprows=1,usecols=[1])
+yy=np.loadtxt("Coordenadascentroide.csv",delimiter=',',skiprows=1,usecols=[2])
+datos=np.zeros((400,5))
+datos[:,0]=xx
+datos[:,1]=yy
+datos[:,4]=1
+for i in range(0,399):
+ datos[i,2]=tau(xx[i],yy[i])[0]
+ datos[i,3]=tau(xx[i],yy[i])[1]
+
+np.savetxt("SoluciónFlujo2.1",datos)
+
 
 # Se plotea la solucion
 plot(u)

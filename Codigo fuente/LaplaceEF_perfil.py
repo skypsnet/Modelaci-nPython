@@ -52,15 +52,9 @@ vtkfile << u
 # Se calcula el error L2
 error_L2 = errornorm(u_D, u, 'L2')
 
-# Se calcula el error maximo en los vertices
-vertex_values_u_D = u_D.compute_vertex_values(mesh)
-vertex_values_u = u.compute_vertex_values(mesh)
-import numpy as np
-error_max = np.max(np.abs(vertex_values_u_D - vertex_values_u))
 
 # Impresion de los errores
 print('error_L2  =', error_L2)
-print('error_max =', error_max)
 
 # Se realiza el ploteo de la solucion
 import matplotlib.pyplot as plt

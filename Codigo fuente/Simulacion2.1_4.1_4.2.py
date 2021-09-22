@@ -19,22 +19,24 @@ from __future__ import print_function
 from fenics import *
 import numpy as np
 import random as ra
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 # Refinación de la malla  
-numcelx=20
-numcely=10
-nele2=numcelx*numcely
+celx=20
+cely=10
 # Conductividad hidraulica central del primer y el segundo estrato
 k1= 10
 k2= 10
 # Datos del modelo
 lonx=200
 lony=100
-pasox=lonx/numcelx
-pasoy=lony/numcely
+pasox=lonx/celx
+pasoy=lony/cely
 
 # Crea el mallado rectangular con intervalos de 20 metros
-mesh = RectangleMesh(Point(0,0), Point(200,100), numcelx, numcely)
+mesh = RectangleMesh(Point(0,0), Point(200,100), celx, cely)
 V = FunctionSpace(mesh, 'P', 1)
 
 # Se definen las condiciones de frontera superior
@@ -86,42 +88,22 @@ bc = [CondIzquierda,CondCentral,CondDerecha]
 
 # Se define la heterogeneidad del sistema, aplicando para cada nodo un valor central
 
-#class K(Expression):
-# def set_k_values(self,k,num_ele):
-#   self.k=k
-#   self.k[100]=0
-# def eval(self, value, x):
-#   tol = 1E-14
-#   cont=0
-#   for i in range(0+pasox,lonx+1,pasox):
-#    for j in range(0+pasoy,lony+1,pasoy):
-#     if (x[0]-i)<tol and (x[1]-j)<tol:
-#      value[0] = self.k[cont]
-#      cont=cont+1
-
 class K(Expression):
- def set_k_values(self,k,num_ele):
-   self.k=k
-   self.k[100]=0
+ def set_k_values(self, k):
+  self.k_0 = k[0] 
+  self.k_1 = k[1]
  def eval(self, value, x):
-   tol = 1E-14
-   cont=0
-   if abs(x[1]-10)<=tol:
-    value[0] = 1
-   else:
-    value[0] = 1000
-       
-      
+  tol = 1E-14
+  if abs(x[1])<50+tol:
+   value[0] = self.k_0
+  else:
+    value[0] = self.k_1
 
-# and (x[0]-(i-10))>tol and (x[1]-(j-10)>tol): 
 # Inicializando subdominio del medio
-# Se lee el archivo de texto que contiene los resultados de la simulación no condicional 
-num_ele=200
-k = np.loadtxt("simnocond1.txt",delimiter=',',skiprows=1,usecols=[6])
-
-#k=(1,10)
+k=(10,100)
 kappa = K(degree=0)
-kappa.set_k_values(k,num_ele)
+kappa.set_k_values(k)
+
 
 # Se define el problema variacional
 u = TrialFunction(V)
@@ -136,35 +118,55 @@ L = f*v*dx - g*v*ds
 u = Function(V)
 solve(a == L, u, bc)
 
-# Se plotea la solucion
-plot(u)
-plot(mesh)
+# Se organizan los valores para la exportación de los datos
+#tau=project(grad(u))
 
-# Se salva la solucion en un archivo vtkfile 
-vtkfile = File('poisson/solution.pvd')
-vtkfile << u
+tau=project(grad(u))
+xx=np.loadtxt("Coordenadascentroide.csv",delimiter=',',skiprows=1,usecols=[1])
+yy=np.loadtxt("Coordenadascentroide.csv",delimiter=',',skiprows=1,usecols=[2])
+datos=np.zeros((400,7))
+datos[:,0]=xx
+datos[:,1]=yy
+datos[:,4]=1
+for i in range(0,399):
+ datos[i,2]=-tau(xx[i],yy[i])[0]
+ datos[i,3]=-tau(xx[i],yy[i])[1]
 
-# Se calcula el error L2
-error_L2 = errornorm(u_I, u, 'L2')
+#np.savetxt("SoluciónFlujo2.1",datos)
 
-# Se calcula el error maximo en los vertices
-vertex_values_u_I = u_I.compute_vertex_values(mesh)
-vertex_values_u = u.compute_vertex_values(mesh)
-error_max = np.max(np.abs(vertex_values_u_I - vertex_values_u))
 
-# Impresion de los errores
-print('error_L2  =', error_L2)
-print('error_max =', error_max)
+for i in range (0,399): 
+ if (datos[i,1]<50):
+  datos[i,4]=100
+ else:
+  datos[i,4]=10
 
-# Se realiza el ploteo de la solucion
+datos[:,5]=datos[:,4]*datos[:,2]
+datos[:,6]=datos[:,4]*datos[:,3]
+  
+
+#np.savetxt("SoluciónFlujo3.4",datos)
+
+# Ploteo de la solucion
 import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
-ax= plt.subplot(111)
-plot(u)
-im=plot(-grad(u))
 
-plt.title('Flujo de agua subterranea en valle intermontano')
-plt.ylabel('Elevacion [m]')
+plt.figure()
+plt.plot(datos[361:399,0],datos[361:399,6],'bo')
+plt.title('Gráfica de recarga y descarga')
+plt.ylabel('Componente y')
+plt.grid()
+
+plt.figure()
+carga=plot(u)
+flujo=plt.quiver(xx,yy,datos[:,5],datos[:,6])
+plt.colorbar(carga)
+plt.title('Flujo de agua subterránea')
+plt.ylabel('Elevación [m]')
+#plt.colorbar(im)
+#plot(mesh)
+plt.title('Flujo de agua subterránea')
+plt.ylabel('Elevación [m]')
 plt.xlabel('Distancia [m]')
-plt.colorbar(im)
 plt.show()
+
+

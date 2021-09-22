@@ -5,6 +5,9 @@ from __future__ import print_function
 from fenics import *
 import numpy as np
 import random as ra
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import matplotlib.pyplot as plt
 
 # Se crea la malla donde se define el dominio
@@ -62,7 +65,7 @@ V0= FunctionSpace(mesh,"DG",0)
 k=Function(V0)
 
 # Se asigna para cada valor del marcado un valor del conjunto de conductividades
-ka = np.loadtxt("Pruebayy.txt",delimiter=',',skiprows=1,usecols=[6])
+ka = np.loadtxt("AnisotropoR15(90,0.1).txt",delimiter=',',skiprows=1,usecols=[6])
 k_values=np.exp(ka)
 cont=0
 for cell_no in cells(mesh):
@@ -84,32 +87,53 @@ L=f*v*dx-g*v*ds
 u= Function(V)
 solve(a==L,u,bc)
 
-# Se organizan los valores para la exportación de los datos
-tau=project(grad(u))
 
+# Se organizan los valores para la exportación de los datos
+#tau=project(grad(u))
+
+tau=project(grad(u))
 xx=np.loadtxt("Coordenadascentroide.csv",delimiter=',',skiprows=1,usecols=[1])
 yy=np.loadtxt("Coordenadascentroide.csv",delimiter=',',skiprows=1,usecols=[2])
-datos=np.zeros((400,5))
+datos=np.zeros((400,7))
 datos[:,0]=xx
 datos[:,1]=yy
 datos[:,4]=k_values
+
 for i in range(0,399):
  datos[i,2]=tau(xx[i],yy[i])[0]
  datos[i,3]=tau(xx[i],yy[i])[1]
 
+datos[:,5]=datos[:,4]*datos[:,2]
+datos[:,6]=datos[:,4]*datos[:,3]
+np.savetxt("SoluciónFlujo5.1",datos)
+
+# Ploteo de las conductividades hidráulicas
+#from scipy.interpolate import griddata
+
+#coorx=np.arange(0,200)
+#coory=np.arange(0,100)
+
+#grid_x,grid_y=np.mgrid[coorx,coory]
+#coordenadas = datos[:,0:2] 
+#K=datos[:,4] 
+#Ti=griddata((datos[:,0],datos[:,1]),datos[:,4],(grid_x,grid_y),method='nearest')
+
+#grid_k=griddata(datos[:,0:2],datos[:,4],(grid_x,grid_y),method='nearest')
+#plt.figure()
+#plt.imshow(grid_k.T,extent=(0,200,0,100),origin='lower')
+#plt.title('Conductividad hidraulica (K)')
 
 # Ploteo de la solución
 plt.figure()
-ax= plt.subplot(111)
-im=plot(u)
-#plot(mesh)
-plt.colorbar(im)
-#plot(u)
-#plot(mesh)
-plot(-grad(u))
+goocarga=plot(u)
+flujo=plt.quiver(xx,yy,-datos[:,2],-datos[:,3])
+#plt.colorbar(carga)
 plt.title('Flujo de agua subterranea')
-plt.ylabel('Elevacion [m]')
+plt.ylabel('Elevación [m]')
+#plt.colorbar(im)
+#plot(mesh)
+plt.title('Flujo de agua subterranea')
+plt.ylabel('Elevación [m]')
 plt.xlabel('Distancia [m]')
 plt.show()
-
 
