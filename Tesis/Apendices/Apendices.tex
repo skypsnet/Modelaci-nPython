@@ -1,0 +1,389 @@
+\addcontentsline{toc}{chapter}{Apéndices}
+\chapter*{Apéndices}
+\appendix
+\chapter{Códigos de simulaciones númericas}
+\section{Códigos del caso homogéneo}
+El código para la simulación 1 en materiales homogéneos es la siguiente:
+
+\lstset{literate=
+  {á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {Á}{{\'A}}1
+  {É}{{\'E}}1
+  {Í}{{\'I}}1
+  {Ó}{{\'O}}1
+  {Ú}{{\'U}}1
+  {ñ}{{\~n}}1
+  {ü}{{\"u}}1
+  {Ü}{{\"U}}1
+}
+
+\begin{lstlisting}[frame=single]
+
+#!/usr/bin/env python
+#-*- coding: 850 -*-
+
+from __future__ import print_function
+from fenics import *
+import numpy as np
+import random as ra
+import matplotlib.pyplot as plt
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+# Se crea la malla donde se define el dominio
+
+mesh= RectangleMesh(Point(0,0),Point(200,100),20,10)
+V = FunctionSpace(mesh, 'P', 1)
+# Se definen las condiciones de fronteras
+
+def frontera_I(x,frontera):
+ tol=1E-14    
+ if frontera:
+  if x[0]<=tol: 
+   return True
+  else:
+   return False 
+ else:
+  return False  
+
+\end{lstlisting}
+
+\newpage
+
+\begin{lstlisting}[frame=single]
+def frontera_D(x,frontera):
+ tol=1E-14    
+ if frontera:
+  if abs(x[0]-200)<=tol: 
+   return True
+  else:
+   return False 
+ else:
+  return False  
+
+
+F_D = DirichletBC(V, Constant(10), frontera_D)
+F_I = DirichletBC(V, Constant(100), frontera_I)
+bc = [F_D,F_I]
+
+#Se define el problema variacional
+
+u=TrialFunction(V)
+v=TestFunction(V)
+f=Constant(0)
+a=dot(grad(u),grad(v))*dx
+g=Constant(0)
+L=f*v*dx-g*v*ds
+
+# Se realiza el cálculo de la solución
+
+u= Function(V)
+solve(a==L,u,bc)
+#tau=project(-grad(u))
+#flujo=tau1.vector()[:] 
+
+
+# Ploteo de la solución
+plt.figure()
+ax= plt.subplot(111)  
+im=plot(u)
+plt.colorbar(im) 
+lo=plot(-grad(u))
+plt.title('Flujo de agua subterránea')
+plt.ylabel('Elevación [m]')
+plt.xlabel('Distancia [m]')
+plt.show()
+
+\end{lstlisting}
+
+
+
+Para la simulación en perfil, las condiciones de frontera cambian de la siguiente forma:
+
+\lstset{language=python,breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+
+def frontera_S(x,frontera):
+ tol=1E-14    
+ if frontera:
+  if abs(x[1]-100)<=tol: 
+   return True
+  else:
+   return False
+
+\end{lstlisting}   
+\begin{lstlisting}[frame=single]   
+ else:
+  return False  
+
+
+F_S = DirichletBC(V, Expression('100-0.45*x[0]',degree=1), frontera_S)
+bc = [F_S]
+
+
+\end{lstlisting}
+
+Las condiciones de frontera para el caso de valle intermontano fue la siguiente:
+
+\lstset{language=python,breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+
+#!/usr/bin/env python
+#-*- coding: 850 -*-
+
+"""
+Script que resuelve la ecuacion de flujo estacionario de Toth para condiciones complejas de valle intermontano
+y un medio heterogeneo (Modelo de 2) a partir del metodo de elemento (Fenics)
+Por: Ricardo Balam Chagoya Morales
+
+Condiciones de la funcion que describe la geometria del nivel freático
+
+Amplitud de la ecuación senoidal de pie de montaña = 1 m
+Amplitud de la ecuación senoidal de intermontana = 10 m
+longitud de onda de le ecuación senoidal = 0.01 m
+Angulo de pendiente = 1.4711 rad 
+"""
+
+
+from __future__ import print_function
+from fenics import *
+import numpy as np
+import random as ra
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+# Refinación de la malla  
+celx=20
+cely=10
+# Conductividad hidraulica central del primer y el segundo estrato
+k1= 10
+k2= 10
+# Datos del modelo
+lonx=200
+lony=100
+pasox=lonx/celx
+pasoy=lony/cely
+
+# Crea el mallado rectangular con intervalos de 20 metros
+mesh = RectangleMesh(Point(0,0), Point(200,100), celx, cely)
+V = FunctionSpace(mesh, 'P', 1)
+
+\end{lstlisting}
+\newpage
+
+\begin{lstlisting}[frame=single]
+# Se definen las condiciones de frontera superior
+# Condicion de pie de montana
+u_I = Expression('500-x[0]*tan(1.4711)+1*(sin((1000*x[0])/cos(1.4711))/cos(1.4711))', degree=1)
+
+def frontera_I(x, dentro_frontera):
+ tol = 1E-14
+ if dentro_frontera:
+   if abs(x[1]-100)<=tol and abs(x[0])<=40:
+    return True
+   else:
+    return False
+ else:
+  return False
+
+# Condicion de valle intermontano 
+u_C = Expression('100+10*(sin(1000*x[0]))', degree=1)
+
+def frontera_C(x, dentro_frontera):
+ tol = 1E-14
+ if dentro_frontera:
+   if abs(x[1]-100)<=tol and 40<=abs(x[0])<=160:
+    return True
+   else:
+    return False
+ else:
+  return False
+
+# COndicion de pie de montana derecho
+u_D = Expression('-1500+x[0]*tan(1.4711)+1*(sin((1000*x[0])/cos(1.4711))/cos(1.4711))', degree=1)
+
+def frontera_D(x, dentro_frontera):
+ tol = 1E-14
+ if dentro_frontera:
+   if abs(x[1]-100)<=tol and abs(x[0])>=160:
+    return True
+   else:
+    return False
+ else:
+  return False
+
+
+CondIzquierda = DirichletBC(V, u_I, frontera_I)
+CondCentral = DirichletBC(V, u_C, frontera_C)
+CondDerecha = DirichletBC(V, u_D, frontera_D)
+
+bc = [CondIzquierda,CondCentral,CondDerecha]
+
+\end{lstlisting}
+
+\newpage
+
+
+\section{Códigos del caso heterogéneo simple}
+
+Las secciones del código que definen la heterogeneidad para la vista en planta es la siguiente (se intercambian los valores de la conductividad para definir el tipo de estrato):
+
+\lstset{language=python}
+\begin{lstlisting}[frame=single]
+class K(Expression):
+ def set_k_values(self, k_0, k_1):
+     self.k_0, self.k_1 = k_0, k_1
+ def eval(self, value, x):
+   tol = 1E-14 
+   if  x[0] <= 100 + tol:
+      value[0] = self.k_0
+   else:
+      value[0] = self.k_1
+
+kappa = K(degree=1)
+kappa.set_k_values(10,100)
+
+\end{lstlisting}
+
+Para el caso de la vista en perfil:
+
+\lstset{language=python,breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[frame=single]
+class K(Expression):
+ def set_k_values(self, k_0, k_1):
+     self.k_0, self.k_1 = k_0, k_1
+ def eval(self, value, x):
+   tol = 1E-14 
+   if  x[1] <= 200 + tol:
+      value[0] = self.k_0
+   else:
+      value[0] = self.k_1
+
+kappa = K(degree=1)
+kappa.set_k_values(10,100)
+
+\end{lstlisting}
+
+\section{Códigos del caso heterogéneo aleatorio}
+
+La sección que define la heterogeneidad aleatoria es la siguiente:
+
+\begin{lstlisting}[frame=single]
+# Se define la heterogeneidad en el sistema
+
+# Se realiza el marcado de la malla
+k=range(0,400,1)
+subdomains=CellFunction('size_t',mesh,0)
+cont=0
+for cell in cells(mesh):
+ subdomains[cell]=k[cont]
+ cont=cont+1
+
+plt.figure()
+im1=plot(subdomains)
+print(subdomains)
+plt.colorbar(im1)
+\end{lstlisting}
+\begin{lstlisting}[frame=single]
+# Se crea un espacio de funciones que simbolizan la conductividad hidráulica   
+V0= FunctionSpace(mesh,"DG",0)
+k=Function(V0)
+
+# Se asigna para cada valor del marcado un valor del conjunto de conductividades
+ka = np.loadtxt("Pruebayy.txt",delimiter=',',skiprows=1,usecols=[6])
+k_values=np.exp(ka)
+cont=0
+for cell_no in cells(mesh):
+ subdomain_no=subdomains[cell_no]
+ k.vector()[cont]=k_values[subdomain_no]
+ cont=cont+1
+
+
+\end{lstlisting}
+
+\chapter{Códigos en R para implementación de heterogeneidad}
+\section{Busqueda de centroides y simulación no condicional}
+
+\begin{lstlisting}[frame=single]
+# Script en R que a partir de la biblioteca gstat calcula los centroides de cada elemento finito y crea el conjunto de valores de simulacion no condicional y genera un conjunto de valores de carga hidraulica a partir de un variograma exponencial
+
+library("gstat")
+xy <- expand.grid(1:5, 1:5)
+
+################ Busqueda de centroides ###########################
+b=10
+h=10
+x=matrix(0,1,40)
+y=matrix(0,1,20)
+yy=matrix(0,1,400)
+# Ciclo que obtiene la coordenada x de los centroides
+contx=1
+for(i in 1:20){
+ for(j in 1:2){
+  if (contx%%2==0) 
+ { 
+  x[contx]<-((2*b)/3)+b*(i-1)
+ }
+  else 
+ {
+  x[contx]<-(b/3)+b*(i-1)
+ }
+ contx=contx+1
+}
+}
+\end{lstlisting}
+\newpage
+
+\begin{lstlisting}[frame=single]
+
+# Ciclo que obtiene la coordenada y de los centroides
+conty=1
+for(m in 1:10){
+ for(n in 1:2){
+  if (conty%%2==0) 
+ { 
+  y[conty]<-((h)/3)+h*(m-1)
+ }
+  else 
+ {
+  y[conty]<-(2*h/3)+h*(m-1)
+ }
+ conty=conty+1
+}
+}
+
+# Se crea el vector de coordenadas x por elemento
+xx=c(x,x,x,x,x,x,x,x,x,x)
+# Se crea el vector de coordenadas y por elemento
+contyy=1
+aux=1
+for(i in 1:10){
+ for(j in 1:40){
+  if(contyy%%2==0){
+   yy[contyy]<-y[aux+1]}
+  else{
+   yy[contyy]<-y[aux]}
+  contyy=contyy+1}
+ aux=aux+2}
+yy=as.vector(yy)
+# Se crea un data frame para los centroides
+xy=data.frame(xx,yy)
+names(xy) <- c("x","y")
+
+##################Simulacion no condicional############################
+
+# Se realizan las simulaciones no condicionales
+vgm1=vgm(1,"Exp",15)
+g.dummy <- gstat(formula = z~1, locations = ~x+y, dummy = TRUE, beta = 0,model = vgm1, nmax = 20)
+yy <- predict(g.dummy, newdata = xy, nsim = 4)
+write.csv(yy, file="Pruebayy.csv")
+
+
+\end{lstlisting}
+

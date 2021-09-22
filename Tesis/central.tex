@@ -1,0 +1,22 @@
+\documentclass[12pt,oneside]{book}
+\input{Codigofuente/preambulo}
+\begin{document}
+\pagenumbering{roman}
+%\include{Dedicatoria/Dedicatoria}
+\include{Resumen/Resumen}
+\tableofcontents
+\addcontentsline{toc}{chapter}{Indice General}
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de figuras}
+\include{Introduccion/Introduccion}
+\pagenumbering{arabic}
+\include{Capitulo1/Capitulo1} 
+\include{Capitulo2/Capitulo2}
+\include{Capitulo3/Capitulo3}
+\include{Conclusiones/Conclusiones}
+\include{Apendices/Apendices}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{acm}
+\bibliography{Bibliografia/biblio} 
+\end{document}
+

@@ -1,0 +1,42 @@
+\contentsline {chapter}{Resumen}{\es@scroman {i}}{chapter*.1}%
+\babel@toc {spanish}{}
+\contentsline {chapter}{Indice General}{\es@scroman {iii}}{chapter*.2}%
+\contentsline {chapter}{Lista de figuras}{\es@scroman {v}}{chapter*.3}%
+\contentsline {chapter}{Introducción}{\es@scroman {vi}}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Fundamentos de flujo en aguas subterráneas}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Variables y parámetros hidráulicos}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}El experimento de Darcy}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Carga hidráulica y potencial hidráulico}{3}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Conductividad hidráulica}{6}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Variabilidad espacial}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Homogeneidad y heterogeneidad}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Distribución geoestadistica de la heterogeneidad}{11}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}La ecuación de flujo }{15}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Metodología}{18}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Bibliotecas FEniCS}{18}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Método de elemento finito}{21}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Formulación integral}{21}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Elementos Finitos}{25}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Resolución del problema variacional}{32}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Implementación computacional}{34}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Implementación con FeniCS}{34}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Implementación de la heterogeneidad}{36}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Modelos y simulaciones númericas}{41}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Caso homógeneo}{41}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Simulación 1: Condiciones de fronteras simples}{41}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Simulación 2: Condiciones de fronteras complejas}{48}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Caso heterogéneo simple}{50}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Simulación 3: Condiciones de fronteras simples}{50}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Simulación 4: Condiciones de fronteras complejas}{56}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Caso heterogéneo aleatorio}{58}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Simulación 5: Condiciones de frontera simples}{59}{subsection.3.3.1}%
+\contentsline {chapter}{Discusión}{64}{figure.3.22}%
+\contentsline {chapter}{Conclusiones}{65}{chapter*.5}%
+\contentsline {chapter}{Apéndices}{67}{Item.16}%
+\contentsline {chapter}{\numberline {A}Códigos de simulaciones númericas}{68}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Códigos del caso homogéneo}{68}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Códigos del caso heterogéneo simple}{73}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Códigos del caso heterogéneo aleatorio}{73}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Códigos en R para implementación de heterogeneidad}{75}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Busqueda de centroides y simulación no condicional}{75}{section.Alph2.1}%
+\contentsline {chapter}{Bibliografía}{77}{lstnumber.-22.44}%

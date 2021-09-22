@@ -1,0 +1,34 @@
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción}
+El análisis del flujo de agua subterránea en medios porosos es un problema que ha sido estudiado a lo largo de varias décadas; se trata de un estudio multidisciplinario que involucra principalmente la geología, la hidrología, la física y las matemáticas. Para solucionar este problema se han diseñado numerosos modelos matemáticos que simplifican la compleja realidad del comportamiento del flujo de agua subterránea y buscan contemplar los aspectos geológicos más relevantes dependiendo del objetivo del estudio. Las ecuaciones que modelan los sistemas de flujo de agua subterránea en el subsuelo pueden ser resueltas a partir de diversos métodos numéricos para obtener la función solución en un dominio discreto que representa el área de interés donde nos interesa saber el comportamiento del flujo; entre ellos destaca el método de elemento finito que es posible implementar con cualquier lenguaje de programación. 
+\\
+
+
+A partir de su estudio teórico y la aplicación de las metodologías para modelar los sistemas de flujo de agua subterránea, se desarrollaron diversas plataformas que se enfocan a la resolución de este tipo de problemas, siendo el principal de ellos MODFLOW (USGS, 1983), que resuelve las ecuaciones a partir del método de diferencias finitas; debido a la popularidad de esta plataforma y la necesidad de modelar el agua subterránea para usos prácticos y científicos, se crearon softwares comerciales a partir de las plataformas ya existentes; sin embargo, la limitación de Modflow debido a los principios de los cuales depende el método de diferencias finitas, hizo que otras opciones fueran atractivas como la implementación del método de elemento finito partir de plataformas computacionales, uno de ellos es el proyecto FeniCS que resulta de principal interés en este trabajo. 
+\\
+
+La variabilidad espacial es uno de los principales problemas a los que se han afrontado los hidrogeólogos al momento de realizar la modelación de los sistemas de aguas subterráneas debido a la necesidad de conocer las propiedades del subsuelo para determinar los patrones de flujo; estudios previos realizados por Gelhar et al. (1992) muestran a partir de la recolección y análisis de varios experimentos de campo, que los diferentes grados de heterogeneidad de un acuífero afectan la fiabilidad en la medición de la dispersividad; Boggs et al. (1992) por otro lado, indican en su trabajo una alta asímetria en la distribución de la concentración en un experimento de trazador debido a las variaciones de hasta 2 ordenes de la conductividad hidráulica entre los sitios de medición, mientras que W. Huang et al. (2003) afirma la importancia del tratamiento de la heterogeneidad a escalas menores (sedimentos y granos) para el transporte de solutos \cite{Huang2003} \cite{Gelhar1992} \cite{Boggs1992}. 
+\\
+
+El problema de la heterogeneidad en la modelación se ha vuelto fundamental para obtener patrones de flujo más cercanos a la realidad y hacer una correcta evaluación de los recursos hídricos, por lo que se han propuesto diversas formas de tratar este problemas,  recreando una imagen de la distribución de conductividades en el subsuelo buscando minimizar la incertidumbre entre los datos medidos, la información geológica disponible y la distribución real de los parámetros del subsuelo (Koltermann and Gorelick, 1996)\cite{Kolter1996}.
+\\
+
+
+El objetivo principal de este trabajo es el análisis de un conjunto de simulaciones que permitan describir el comportamiento del flujo de agua subterráneo en medios porosos , haciendo énfasis en los medios porosos heterogéneos; para ello se consideraron dos posibilidades de un medio heterogéneo. El primer caso corresponde a un medio compuesto por dos formaciones, donde cada formación tiene párametros (conductividad hidráulica) uniformes, pero ambos parámetros difieren entre sí. El segundo caso corresponde a una sola formación geológica pero que es heterogénea en sus propiedades. Este segundo caso se acerca más a lo que se encuentra en las formaciones geológicas reales (Gelhar et al. 1992; Boggs et al. 1992; Koltermann y Gorelick 1996; Huang et al. 2003; de Marsily et al 2005; Vrionis et al. 2005).
+\\
+
+Estos modelos se resolvieron a partir del método de elemento finito implementado con FeniCS; plataforma computacional gratuito y libre, que provee herramientas para la resolución de ecuaciones diferenciales parciales (ecuación de flujo de agua subterránea) mediante el método de elemento finito. El desarrollo de códigos computacionales para la modelación de agua subterránea a partir de software libre y abierto, proporciona un potencial para la elaboración de herramientas más completas y personalizables para la resolución de problemas de modelación más complejos que se encuentran en la práctica. 
+\\
+ 
+La estructura de esta tesis consiste en tres capítulos que abarcan todos los aspectos del problema de flujo en medios porosos heterogeneos, una de conclusiones en el que se compara el análisis de resultados con el objetivo propuesto, un apéndice en el que se describe detalladamente las técnicas empleadas para la resolución del problema y uno con las referencias bibliográficas usadas para el desarrollo de esta tesis.   
+\\ 
+ 
+El \textbf{primer capítulo} de esta tesis explica los fundamentos teóricos del flujo de agua subterránea, las características de los parámetros que rigen su comportamiento y los principios de su variabilidad espacial, pasando a la formulación de la ecuación de flujo que integra los conceptos anteriores.
+\\
+
+El \textbf{segundo capítulo} consiste en la descripción de la metodología empleada para generar las simulaciones numéricas, explicando los conceptos elementales del método de elemento finito, su aplicación con las bibliotecas FeniCS para el problema de flujo de agua subterránea y la descripción de los pasos realizados para generar los modelos numéricos.
+\\
+
+El \textbf{tercer capítulo} presenta los resultados de las simulaciones y el análisis para cada simulación realizada.
+
+\newpage

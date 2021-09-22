@@ -1,0 +1,36 @@
+\addcontentsline{toc}{chapter}{Discusión}
+\chapter*{Discusión}
+
+El uso de código abierto para resolver problemas de flujo de agua subterránea es una alternativa para entender su comportamiento en diferentes modelos geológicos, la plataforma computacional FeniCS resulta ser una herramienta eficiente para modelar diferentes ámbitos geológicos donde se da el movimiento del flujo. En la sección anterior se obtuvieron resultados para diferentes escenarios; en el caso de la primer simulación, se logró describir el movimiento simple del flujo de agua de un extremo a otro suponiendo un acuífero rectangular e impermeable en los extremos, el código se simplifica al aplicar las funciones de la biblioteca FEniCS, devolviendo el campo de cargas hidráulicas tanto para el corte vertical como para el corte horizontal, los valores de flujo que se obtuvieron corresponden al mismo resultado que el  propuesto por József Tóth (1960) para el mismo problema, comprobando la eficacia del mismo.
+\\
+
+Estas simulaciones también fueron de ayuda para comprender algunos conceptos de la teoría de flujo subterráneo, en la simulación 2, se aplico un modelo para un acuífero rectangular cuya carga hidráulica recreaba estar sobre un valle intermontano, donde fue posible definir las zonas de recarga y descarga con apoyo de las gráficas del componente vertical del flujo en la superficie, otro concepto hidrogeológico que se reforzó, fue con la simulación 3, con la ley tangente que se cumple al momento de que el flujo de agua atraviesa un material de diferente conductividad, cambiando su dirección y provocando un destino distinto al esperado en un medio homogéneo. La simulación 5 tiene la representación más cercana a la realidad del medio físico, al definir por elemento un valor distinto de conductividad hidráulica que varia según un campo log-gaussiano, como es de esperar, los vectores de flujo asumen diferentes direcciones y puntos de convergencia que son de principal interés si queremos definir las zonas de recarga y descarga.    
+\\
+
+La utilidad de la biblioteca se demuestra  al momento de definir con mucha facilidad las condiciones de frontera y la heterogeneidad del medio, debido a que solo es necesario la creación de dos funciones, una que defina la estructura del medio que depende de nuestro modelo conceptual y otra función que defina nuestras fronteras. Para las simulaciones donde se ven involucradas condiciones de frontera mas complejas, es necesario alargar el código definiendo funciones por cada segmento de la frontera que queramos cambiar (simulaciones 2 y 4) mientras que en el caso de un medio heterogéneo, la principal dificultad radica en la complejidad de la estructura del medio; para el caso de una heterogeneidad simple (a mayor escala) basta con definir una función por cada zona con diferente valor de conductividad hidráulica, pero cuando aumenta la variabilidad espacial al punto en que cada elemento adquiere un valor distinto de conductividad
+hidráulica, se hace imposible definir una función por elemento, la solución fue la creación de un script que recorre todo el dominio y va asignando a cada elemento su valor correspondiente de conductividad. 
+\\
+
+Los resultados de estas simulaciones nos permiten colocar la plataforma FEniCS como una adecuada herramienta no solo para hacer simulaciones númericas de flujo de agua subterránea de forma convencional, sino que en conjunto con bibliotecas de análisis geoestadístico (R o python) proveen una poderosa herramienta para resolver modelos de flujo estocástico, siendo la simulación 4 un posible escenario para un modelo estocástico donde la conductividad hidráulica es una función aleatoria que se encuentra definida espacialmente por un semivariograma teórico donde otras variables que se pueden considerar como funciones aleatorias son la fuente o las fronteras del modelo. 
+\\
+
+Los retos a futuro consisten en probar todas las capacidades de FEniCS en análisis mas complejos, el uso de métodos mixtos para obtener de forma simultánea el campo de cargas hidráulicas y el flujo númerico, la aplicación en la modelación estocástica, mejoras en la herramienta de mallado, el uso de diferentes semivariogramas teóricos, entre otros problemas de importancia en la modelación de flujo de agua subterránea.     
+
+\addcontentsline{toc}{chapter}{Conclusiones}
+\chapter*{Conclusiones}
+
+\begin{enumerate}
+\item La plataforma computacional FEniCS resulta ser una herramienta eficiente para resolver modelos de flujo de agua subterránea de forma semiautomática. 
+
+\item El punto clave de la modelación con FEniCS es definir de forma correcta la formulación variacional de la ecuación de flujo y determinar el tipo de elemento finito que se ocupará para cada problema según nuestro modelo conceptual. 
+
+\item Es necesario poner principal atención al momento de definir las condiciones de frontera y la heterogeneidad del medio, creando una función por cada condición y subdominio del medio.
+
+\item Para el caso de un medio heterogéneo aleatorio, es necesario la creación de un código que cálcule los centroides de cada elemento y otro código que recorra cada elemento para asignar las conductividades hidráulicas.
+
+\item El uso de otras bibliotecas como Matplotlib, nos permiten tener una mejor visualización de nuestro modelo, su campo de cargas y su campo de flujo. 
+
+\item La aplicación en conjunto de FEniCS con Gstat en R, nos permiten dar un tratamiento de la conductividad hidráulica como función aleatoria, haciendo simulaciones no condicionales de la conductividad según la posición de nuestros elementos (centroides).  
+
+
+\end{enumerate}

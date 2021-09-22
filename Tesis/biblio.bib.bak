@@ -1,0 +1,191 @@
+% Encoding: UTF-8
+
+@Book{Viera2002,
+  author    = {Martin Diáz Viera},
+  title     = {Geoestadística aplicada},
+  year      = {2002},
+  date      = {2002},
+  editor    = {Instituto de Geofísica},
+  publisher = {UNAM},
+  chapter   = {2-3},
+  pagetotal = {131},
+  url       = {http://mmc2.geofisica.unam.mx/cursos/gest/GeoEstadistica.pdf},
+}
+
+@Article{Quintin2000,
+  author       = {Cuador Gil José Quintín and Arelys Quintero Silverio and Elmidio Estévez Cruz},
+  title        = {La simulación condicional en geoestadística},
+  journal      = {Minería y Geología},
+  journaltitle = {Minería y Geología},
+  year         = {2000},
+  date         = {2000},
+  volume       = {XVII},
+  number       = {1},
+  issn         = {02585979},
+}
+
+@Article{Rodriguez1999,
+  author       = {Rodriguez G. Jorge A.},
+  title        = {El concepto geoestadístico de variable regionalizada},
+  journal      = {Terra Nueva Etapa [en línea]},
+  journaltitle = {Terra Nueva Etapa},
+  year         = {1999},
+  date         = {1999},
+  volume       = {XV},
+  number       = {24},
+  issn         = {1012-7089},
+}
+
+@Book{Toth2009,
+  author = {Tóth, J.},
+  title  = {Gravitational system of groundwater flow},
+  year   = {2009},
+  date   = {2009-06},
+  editor = {Cambridge University Press},
+  pages  = {1-25},
+}
+
+@Book{Freeze1979,
+  author    = {Allan R. Freeze and John A. Cherry},
+  title     = {Groundwater},
+  year      = {1979},
+  date      = {1979},
+  publisher = {Prentince-Hall},
+  chapter   = {2},
+}
+
+@Book{Logg2012,
+  author    = {Anders Logg and Kent-Andre Mardal and Garth N. Wells and others},
+  title     = {Automated Solution of Differential Equations by the Finite Element Method},
+  year      = {2012},
+  editor    = {Anders Logg and Kent-Andre Mardal and Garth N. Wells},
+  publisher = {Springer},
+  isbn      = {978-3-642-23098-1},
+  doi       = {10.1007/978-3-642-23099-8},
+  url       = {https://www.amazon.com/Automated-Solution-Differential-Equations-Element/dp/3642230989?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=3642230989},
+}
+
+@Thesis{Perez2018,
+  author      = {Juan Eduardo Linares Pérez},
+  title       = {Modelo de flujo y transporte en medios porosos FEniCS usando el método de elementos finitos mixtos.},
+  type        = {mathesis},
+  institution = {Universidad Nacional Autonóma de México},
+  year        = {2018},
+  date        = {2018-04},
+  location    = {Ciudad Universitaria, CDMX.},
+  pagetotal   = {137},
+}
+
+@Unpublished{Esparza,
+  author = {Francisco Periago Esparza},
+  title  = {Fundamentos matemáticos del método de los elementos finitos},
+}
+
+@Article{Gallardo2006,
+  author       = {Gallardo A.},
+  title        = {Geoestadística},
+  journal      = {Ecosistemas},
+  journaltitle = {Ecosistemas},
+  year         = {2006},
+  date         = {2006-03},
+  pages        = {11},
+}
+
+@Article{Hubbert1940,
+  author       = {M.K Hubbert},
+  title        = {The theory of groundwater motion},
+  journal      = {Journal of geology},
+  journaltitle = {Journal of geology},
+  year         = {1940},
+  date         = {1940},
+  number       = {48},
+  pages        = {785-944},
+}
+
+@Book{Sen2015,
+  author    = {Zekai Sen},
+  title     = {Practical and applied hydrogeology},
+  year      = {2015},
+  date      = {2015},
+  publisher = {Elsevier},
+  isbn      = {978-0-12-800075-5},
+  chapter   = {2},
+  pagetotal = {424},
+  url       = {https://www.amazon.com/Practical-Applied-Hydrogeology-Zek%C3%A2i-x15E/dp/0128000759?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0128000759},
+}
+
+@Book{Marsily1986,
+  author    = {De Marsily},
+  title     = {Quantitative hydrogeology},
+  year      = {1986},
+  date      = {1986},
+  publisher = {Academic Press},
+  location  = {London},
+  pagetotal = {440},
+}
+
+@Book{Istok1989,
+  author    = {Jonathan Istok},
+  title     = {Groundwater Modeling by the Finite Element Method (Water Resources Monograph)},
+  year      = {1989},
+  publisher = {American Geophysical Union},
+  isbn      = {0-87590-317-7},
+  url       = {https://www.amazon.com/Groundwater-Modeling-Element-Resources-Monograph/dp/0875903177?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0875903177},
+}
+
+@Book{Whiteley2017,
+  author    = {Jonathan Whiteley},
+  title     = {Finite Element Methods: A Practical Guide (Mathematical Engineering)},
+  year      = {2017},
+  publisher = {Springer},
+  isbn      = {978-3-319-49970-3},
+  url       = {https://www.amazon.com/Finite-Element-Methods-Mathematical-Engineering/dp/331949970X?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=331949970X},
+}
+
+@Book{Arche2010,
+  author    = {Alfredo Arche},
+  title     = {Sedimentología: Del proceso físico a la cuenca sedimentaria},
+  year      = {2010},
+  date      = {2010},
+  publisher = {Consejo Superior de Investigaciones Cientificas},
+  isbn      = {9788400091453},
+}
+
+@Electronic{Pebesma2014,
+  author       = {Edzer J.Pebesma},
+  title        = {Gstat User's Manual},
+  year         = {2014},
+  date         = {8 Abril},
+  url          = {http://www.gstat.org/gstat.pdf},
+  organization = {Gstat},
+}
+
+@Electronic{Gonzalez2000,
+  author = {González Andres y González Silvia},
+  editor = {R Project},
+  title  = {Introducción a R},
+  year   = {2000},
+  date   = {16 Mayo},
+  url    = {https://cran.r-project.org/doc/contrib/R-intro-1.1.0-espanol.1.pdf},
+}
+
+@Book{Beer2010,
+  author    = {Beer},
+  title     = {Mecánica vectorial para ingenieros: Estática},
+  year      = {2010},
+  publisher = {McGraw-Hill Interamericana de España S.L.},
+  isbn      = {978-607-15-0277-3},
+  pages     = {Capitulo 5},
+  url       = {https://www.amazon.com/Mec%C3%A1nica-vectorial-para-ingenieros-Est%C3%A1tica/dp/6071502772?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=6071502772},
+}
+
+@Electronic{Dolejsi2016,
+  author = {Vít Dolejsi, Miloslav Feistauer},
+  editor = {Faculty of Mathematics and Physics. Universidad de Praga},
+  title  = {Discontinuous Galerkin Method},
+  year   = {2016},
+  date   = {Septiembre 20},
+  url    = {https://www.karlin.mff.cuni.cz/~dolejsi/Vyuka/LectureNotes_DGM.pdf},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
