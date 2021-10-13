@@ -1,0 +1,132 @@
+\begin{thebibliography}{10}
+
+\bibitem{Arche2010}
+{\sc Arche, A.}
+\newblock {\em Sedimentología: Del proceso físico a la cuenca sedimentaria}.
+\newblock Consejo Superior de Investigaciones Cientificas, 2010.
+
+\bibitem{Beer2010}
+{\sc Beer}.
+\newblock {\em Mecánica vectorial para ingenieros: Estática}.
+\newblock McGraw-Hill Interamericana de España S.L., 2010.
+
+\bibitem{Boggs1992}
+{\sc Boggs, et~al.}
+\newblock Field study of dispersion in a heterogeneus aquifer 1. overview and
+  site description.
+\newblock {\em Water Resources Research 28\/} (1992), 3281--3291.
+
+\bibitem{Esparza}
+{\sc Esparza, F.~P.}
+\newblock Fundamentos matemáticos del método de los elementos finitos.
+
+\bibitem{Freeze1979}
+{\sc Freeze, A.~R., and Cherry, J.~A.}
+\newblock {\em Groundwater}.
+\newblock Prentince-Hall, 1979.
+
+\bibitem{Gallardo2006}
+{\sc Gallardo, A.}
+\newblock Geoestadística.
+\newblock {\em Ecosistemas\/} (2006), 11.
+
+\bibitem{Gelhar1992}
+{\sc Gelhar, et~al.}
+\newblock A critical review of data on field-scale dispersion in aquifers.
+\newblock {\em Water Resources Research 28\/} (1992), 1955--1974.
+
+\bibitem{Huang2003}
+{\sc Huang, et~al.}
+\newblock Effects of organic matter heterogeneity on sorption and desorption of
+  organic contaminants by soils and sediments.
+\newblock {\em Applied Geochemistry 18\/} (2003), 955--972.
+
+\bibitem{Hubbert1940}
+{\sc Hubbert, M.}
+\newblock The theory of groundwater motion.
+\newblock {\em Journal of geology}, 48 (1940), 785--944.
+
+\bibitem{Istok1989}
+{\sc Istok, J.}
+\newblock {\em Groundwater Modeling by the Finite Element Method (Water
+  Resources Monograph)}.
+\newblock American Geophysical Union, 1989.
+
+\bibitem{Pebesma2014}
+{\sc J.Pebesma, E.}
+\newblock Gstat user's manual, 2014.
+
+\bibitem{Kolter1996}
+{\sc Koltermann, and Gorelick}.
+\newblock Heterogeneity in sedimentary deposits: A review of
+  structure-imitating, process imitating and descriptive approches.
+\newblock {\em Water Resources Research 32\/} (1996), 2617--2658.
+
+\bibitem{Krige1951}
+{\sc Krige, D.}
+\newblock A statistical approach to some basic mine valuation problems on the
+  witwatersrand.
+\newblock {\em J. of the Chem., Metal. and Mining Soc. of South Africa 52\/}
+  (1951), 119--139.
+
+\bibitem{Logg2012}
+{\sc Logg, A., Mardal, K.-A., Wells, G.~N., et~al.}
+\newblock {\em Automated Solution of Differential Equations by the Finite
+  Element Method}.
+\newblock Springer, 2012.
+
+\bibitem{Marsily1986}
+{\sc Marsily, D.}
+\newblock {\em Quantitative hydrogeology}.
+\newblock Academic Press, 1986.
+
+\bibitem{Matheron1962}
+{\sc Matheron, G.}
+\newblock Traité de géostatistique appliquée.
+\newblock {\em Editions Technip\/} (1962).
+
+\bibitem{Perez2018}
+{\sc Pérez, J. E.~L.}
+\newblock Modelo de flujo y transporte en medios porosos en fenics usando el
+  método de elementos finitos mixtos., 2018.
+
+\bibitem{Quintin2000}
+{\sc Quintín, C. G.~J., Silverio, A.~Q., and Cruz, E.~E.}
+\newblock La simulación condicional en geoestadística.
+\newblock {\em Minería y Geología XVII}, 1 (2000).
+
+\bibitem{Rodriguez1999}
+{\sc Rodriguez, G., and Jorge, A.}
+\newblock El concepto geoestadístico de variable regionalizada.
+\newblock {\em Terra Nueva Etapa [en línea] XV}, 24 (1999).
+
+\bibitem{Sen2015}
+{\sc Sen, Z.}
+\newblock {\em Practical and applied hydrogeology}.
+\newblock Elsevier, 2015.
+
+\bibitem{Toth2009}
+{\sc Tóth, J.}
+\newblock {\em Gravitational system of groundwater flow}.
+\newblock 2009.
+
+\bibitem{Viera2002}
+{\sc Viera, M.~D.}
+\newblock {\em Geoestadística aplicada}.
+\newblock UNAM, 2002.
+
+\bibitem{Dolejsi2016}
+{\sc Vít~Dolejsi, M.~F.}
+\newblock Discontinuous galerkin method, 2016.
+
+\bibitem{Whiteley2017}
+{\sc Whiteley, J.}
+\newblock {\em Finite Element Methods: A Practical Guide (Mathematical
+  Engineering)}.
+\newblock Springer, 2017.
+
+\bibitem{Gonzalez2000}
+{\sc y~González~Silvia, G.~A.}
+\newblock Introducción a r, 2000.
+
+\end{thebibliography}

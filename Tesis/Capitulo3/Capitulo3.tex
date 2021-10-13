@@ -57,20 +57,6 @@ Donde ${\nabla}^{2}h$ representa la ecuación \ref{eqn:mys1}; $\textbf{n}$ es el
 \item  ${\partial}\Omega_{N}={(x,0){\cup}(x,100)}$ Condiciones de Neumann
 \end{itemize}
 
-La formulación integral de la ecuación \ref{eqn:mys3} se realiza a partir del método variacional, donde $v$ es nuestra función test correspondiente a nuestros espacio de Hilbert $H^{1}$, relajando las condiciones de derivabilidad al momento de multiplicar por nuestra función test y luego integrar, obtenemos la siguiente formulación integral expresada en su forma lineal y bilineal (veáse sección 2.2.1).
-
-\begin{equation}
- \label{eqn:mys6}
- a(h,v)=\int_{\Omega}^{} {\nabla}h{\cdot}{\nabla}v \cdot ds
-\end{equation}  
-
-\begin{equation}
- \label{eqn:mys7}
- L(v)= \int_{\Omega}^{} fv \cdot ds + \int_{{\partial}_{N}}^{} {\nabla}h{\cdot}\textbf{n} \cdot ds
-\end{equation}  
-
-La segunda expresión de la ecuación \ref{eqn:mys7} son las condiciones naturales del problema variacional, asumiendo la condición dicha en la ecuación \ref{eqn:mys5}, este término se anula, además, el análisis de la porción del acuífero no contempla ningún tipo de fuentes o sumideros, por lo que la función $f$ es igual $0$, por lo que forma lineal queda $L(v)=0$.
-\\
 
 El espacio discreto de aproximación $\hat{H}^{1}$ de $H^{1}$, se construira a partir de elementos finitos triángulares del tipo galerkin continuo, con tres grados de libertad ($n(q)=3$), $\phi$ serán polinomios de grado 1 que sirven como base del espacio de funciones e imponiendo las condiciones de frontera esenciales del tipo dirichlet dentro del espacio $\hat{H}^{1}$. El espacio que discretiza nuestro problema es el siguiente.
 
@@ -83,7 +69,7 @@ El modelo númerico consiste en sustituir la solución $h(x,y)$ por el resultado
 \\
 
 A partir del modelo matemático, la implementación computacional se realiza según lo planteado en la sección 2.3. Los resultados consisten en el campo de cargas hidráulicas en todo el dominio establecido (Vista en planta) y la descarga específica para cada elemento finito, donde la conductividad hidráulica es igual 1 en todo el dominio.
- \\
+
 
  \begin{figure}[H]
 \centering
@@ -179,24 +165,24 @@ El modelo matemático es el mismo que en la ecuación \ref{eqn:mys8}, con las mi
 
  \begin{equation}
  \label{eqn:mys11}
-    h=500-x{\cdot}tan(1.4711)+(\dfrac{cos(1000{\cdot}x/cos(1.4711) }{cos(1.4711)}) \quad en \quad  {\partial}\Omega_{D_{Izquierda}}    
+    h=150-x{\cdot}tan(0.896)+(\dfrac{cos(100{\cdot}x/cos(0.896) }{cos(0.896)}) \quad en \quad  {\partial}\Omega_{D_{Izquierda}}    
     \end{equation}
 
 \begin{equation}
  \label{eqn:mys12}
-    h= 100+10{\cdot}(sin(1000{\cdot}x)) \quad  en \quad {\partial}\Omega_{D_{Central}}
+    h= 100+4{\cdot}(sin({\cdot}x)) \quad  en \quad {\partial}\Omega_{D_{Central}}
 \end{equation}
 
 \begin{equation}
  \label{eqn:mys13}
-    h= -1500+x{\cdot}tan(1.4711)+(\dfrac{cos(1000{\cdot}x/cos(1.4711) }{cos(1.4711)}) \quad en \quad  {\partial}\Omega_{D_{Izquierda}}   
+    h= -100+x{\cdot}tan(0.896)+(\dfrac{cos(100{\cdot}x/cos(0.896) }{cos(0.896)}) \quad en \quad  {\partial}\Omega_{D_{Izquierda}}   
 \end{equation}
 
 A partir de estas condiciones de Dirichlet y aplicando la metodología para la simulación de flujo, obtenemos los siguientes resultados:
 
  \begin{figure}[H]
 \centering
-\includegraphics[scale=0.55]{Figura_29e.png}
+\includegraphics[scale=0.50]{Figura_29e.png}
 \caption{ Campo de cargas hidráulicas y flujo de agua subterránea (Vista en perfil)}
 \label{Figura20:2}
 \end{figure}
@@ -298,20 +284,23 @@ El espacio de funciones que discretizan el dominio en elementos finitos y las co
 \
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.25]{Figura_27a.png}
+\includegraphics[scale=0.25]{Figura_27.png}
 \caption{ Modelo matemático y conceptual}
 \label{Figura3:7a}
 \end{figure}
 
 \newpage
 
- \begin{figure}[H]
+\vspace*{20mm}
+
+\begin{figure}[H]
 \centering
-\includegraphics[scale=0.57]{Figura_33e.png}
-\caption{ Estratificación grano grueso a fino}
+\includegraphics[height=15cm]{Figura_33e.png} 
+\caption{Estratificación grano grueso a fino}
 \label{Figura3:7c}
 \end{figure}
 
+\newpage
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.55]{Figura_34d.png}
@@ -348,16 +337,21 @@ Mientras que las condiciones de frontera estan delimitadas por la ecuación \ref
 \label{Figura3:7a}
 \end{figure}
 
+\newpage
+
+\vspace*{20mm}
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.55]{Figura_35d.png}
+\includegraphics[height=15cm]{Figura_35d.png}
 \caption{ Estratificación grano fino a grueso}
 \label{Figura3:7}
 \end{figure}
+
+\newpage 
  
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.55]{Figura_36d.png}
+\includegraphics[scale=0.50]{Figura_36d.png}
 \caption{ Estratificación grano grueso a fino}
 \label{Figura3:8}
 \end{figure}

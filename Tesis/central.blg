@@ -1,0 +1,27 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: central.aux
+A level-1 auxiliary file: Introduccion/Introduccion.aux
+A level-1 auxiliary file: Capitulo1/Capitulo1.aux
+A level-1 auxiliary file: Capitulo2/Capitulo2.aux
+A level-1 auxiliary file: Capitulo3/Capitulo3.aux
+A level-1 auxiliary file: Conclusiones/Conclusiones.aux
+A level-1 auxiliary file: Apendices/Apendices.aux
+The style file: acm.bst
+Database file #1: Bibliografia/biblio.bib
+Warning--entry type for "Perez2018" isn't style-file defined
+--line 68 of file Bibliografia/biblio.bib
+Warning--entry type for "Pebesma2014" isn't style-file defined
+--line 154 of file Bibliografia/biblio.bib
+Warning--entry type for "Gonzalez2000" isn't style-file defined
+--line 163 of file Bibliografia/biblio.bib
+Warning--entry type for "Dolejsi2016" isn't style-file defined
+--line 182 of file Bibliografia/biblio.bib
+You're missing a field part---line 251 of file Bibliografia/biblio.bib
+ : volume = 
+ :          ,
+I'm skipping whatever remains of this entry
+Warning--empty note in Esparza
+Warning--can't use both author and editor fields in Logg2012
+Warning--can't use both author and editor fields in Toth2009
+Warning--empty publisher in Toth2009
+Warning--can't use both author and editor fields in Viera2002
+(There was 1 error message)

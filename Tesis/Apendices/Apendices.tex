@@ -2,6 +2,9 @@
 \chapter*{Apéndices}
 \appendix
 \chapter{Códigos de simulaciones númericas}
+Para una consulta completa del código, se recomienda consultar el repositorio en github en la siguiente dirección electrónica.
+https://github.com/skypsnet/Modelaci-nPython
+
 \section{Códigos del caso homogéneo}
 El código para la simulación 1 en materiales homogéneos es la siguiente:
 
@@ -112,16 +115,14 @@ def frontera_S(x,frontera):
  tol=1E-14    
  if frontera:
   if abs(x[1]-100)<=tol: 
-   return True
-  else:
-   return False
+
 
 \end{lstlisting}   
 \begin{lstlisting}[frame=single]   
- else:
-  return False  
-
-
+   return True
+  else:
+   return False
+   
 F_S = DirichletBC(V, Expression('100-0.45*x[0]',degree=1), frontera_S)
 bc = [F_S]
 
@@ -284,12 +285,16 @@ cont=0
 for cell in cells(mesh):
  subdomains[cell]=k[cont]
  cont=cont+1
+\end{lstlisting}
 
+\begin{lstlisting}[frame=single]
 plt.figure()
 im1=plot(subdomains)
 print(subdomains)
 plt.colorbar(im1)
 \end{lstlisting}
+
+
 \begin{lstlisting}[frame=single]
 # Se crea un espacio de funciones que simbolizan la conductividad hidráulica   
 V0= FunctionSpace(mesh,"DG",0)

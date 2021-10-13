@@ -1,0 +1,41 @@
+\BOOKMARK [0][-]{chapter*.1}{Resumen}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Indice General}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{Lista de figuras}{}% 3
+\BOOKMARK [0][-]{chapter*.4}{Introducci\363n}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Fundamentos de flujo en aguas subterr\341neas}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Variables y par\341metros hidr\341ulicos}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.1.1}{El experimento de Darcy}{section.1.1}% 7
+\BOOKMARK [2][-]{subsection.1.1.2}{Carga hidr\341ulica y potencial hidr\341ulico}{section.1.1}% 8
+\BOOKMARK [2][-]{subsection.1.1.3}{Conductividad hidr\341ulica}{section.1.1}% 9
+\BOOKMARK [1][-]{section.1.2}{Variabilidad espacial}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.2.1}{Homogeneidad y heterogeneidad}{section.1.2}% 11
+\BOOKMARK [2][-]{subsection.1.2.2}{Distribuci\363n geoestadistica de la heterogeneidad}{section.1.2}% 12
+\BOOKMARK [1][-]{section.1.3}{La ecuaci\363n de flujo }{chapter.1}% 13
+\BOOKMARK [0][-]{chapter.2}{Metodolog\355a}{}% 14
+\BOOKMARK [1][-]{section.2.1}{Bibliotecas FEniCS}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.2}{M\351todo de elemento finito}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.1}{Formulaci\363n integral}{section.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.2}{Elementos Finitos}{section.2.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.3}{Resoluci\363n del problema variacional}{section.2.2}% 19
+\BOOKMARK [1][-]{section.2.3}{Implementaci\363n computacional}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.3.1}{Implementaci\363n con FeniCS}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.2}{Implementaci\363n de la heterogeneidad}{section.2.3}% 22
+\BOOKMARK [0][-]{chapter.3}{Modelos y simulaciones n\372mericas}{}% 23
+\BOOKMARK [1][-]{section.3.1}{Caso hom\363geneo}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.1.1}{Simulaci\363n 1: Condiciones de fronteras simples}{section.3.1}% 25
+\BOOKMARK [2][-]{subsection.3.1.2}{Simulaci\363n 2: Condiciones de fronteras complejas}{section.3.1}% 26
+\BOOKMARK [1][-]{section.3.2}{Caso heterog\351neo simple}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.2.1}{Simulaci\363n 3: Condiciones de fronteras simples}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.2}{Simulaci\363n 4: Condiciones de fronteras complejas}{section.3.2}% 29
+\BOOKMARK [1][-]{section.3.3}{Caso heterog\351neo aleatorio}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.3.1}{Simulaci\363n 5: Condiciones de frontera simples}{section.3.3}% 31
+\BOOKMARK [0][-]{figure.3.22}{Discusi\363n}{}% 32
+\BOOKMARK [0][-]{chapter*.5}{Conclusiones}{}% 33
+\BOOKMARK [0][-]{Item.16}{Ap\351ndices}{}% 34
+\BOOKMARK [0][-]{appendix.Alph1}{C\363digos de simulaciones n\372mericas}{}% 35
+\BOOKMARK [1][-]{section.Alph1.1}{C\363digos del caso homog\351neo}{appendix.Alph1}% 36
+\BOOKMARK [1][-]{section.Alph1.2}{C\363digos del caso heterog\351neo simple}{appendix.Alph1}% 37
+\BOOKMARK [1][-]{section.Alph1.3}{C\363digos del caso heterog\351neo aleatorio}{appendix.Alph1}% 38
+\BOOKMARK [0][-]{appendix.Alph2}{C\363digos en R para implementaci\363n de heterogeneidad}{}% 39
+\BOOKMARK [1][-]{section.Alph2.1}{Busqueda de centroides y simulaci\363n no condicional}{appendix.Alph2}% 40
+\BOOKMARK [0][-]{lstnumber.-23.44}{Bibliograf\355a}{}% 41

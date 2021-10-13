@@ -24,7 +24,7 @@
 \contentsline {chapter}{\numberline {3}Modelos y simulaciones númericas}{41}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Caso homógeneo}{41}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Simulación 1: Condiciones de fronteras simples}{41}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Simulación 2: Condiciones de fronteras complejas}{48}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}Simulación 2: Condiciones de fronteras complejas}{47}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Caso heterogéneo simple}{50}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Simulación 3: Condiciones de fronteras simples}{50}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Simulación 4: Condiciones de fronteras complejas}{56}{subsection.3.2.2}%
@@ -35,8 +35,8 @@
 \contentsline {chapter}{Apéndices}{67}{Item.16}%
 \contentsline {chapter}{\numberline {A}Códigos de simulaciones númericas}{68}{appendix.Alph1}%
 \contentsline {section}{\numberline {A.1}Códigos del caso homogéneo}{68}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Códigos del caso heterogéneo simple}{73}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Códigos del caso heterogéneo aleatorio}{73}{section.Alph1.3}%
-\contentsline {chapter}{\numberline {B}Códigos en R para implementación de heterogeneidad}{75}{appendix.Alph2}%
-\contentsline {section}{\numberline {B.1}Busqueda de centroides y simulación no condicional}{75}{section.Alph2.1}%
-\contentsline {chapter}{Bibliografía}{77}{lstnumber.-22.44}%
+\contentsline {section}{\numberline {A.2}Códigos del caso heterogéneo simple}{72}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Códigos del caso heterogéneo aleatorio}{72}{section.Alph1.3}%
+\contentsline {chapter}{\numberline {B}Códigos en R para implementación de heterogeneidad}{74}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Busqueda de centroides y simulación no condicional}{74}{section.Alph2.1}%
+\contentsline {chapter}{Bibliografía}{76}{lstnumber.-23.44}%
